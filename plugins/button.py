@@ -2,7 +2,7 @@ from config import FORCE_SUB_CHANNEL, FORCE_SUB_GROUP, FORCE_SUB_CHANNEL2
 from pyrogram.types import InlineKeyboardButton
 
 
-def start_button(client):
+def start_button(client, is_fsub=False):
     buttons = []
 
     if FORCE_SUB_CHANNEL2:
@@ -10,7 +10,7 @@ def start_button(client):
             InlineKeyboardButton(text="ɢʀᴏᴜᴘ", url=client.invitelink3),
         ])
 
-    if FORCE_SUB_CHANNEL:
+    if FORCE_SUB_CHANNEL and not is_fsub:
         if FORCE_SUB_CHANNEL2:
             buttons[-1].append(
                 InlineKeyboardButton(text="ᴄʜᴀɴɴᴇʟ", url=client.invitelink)
