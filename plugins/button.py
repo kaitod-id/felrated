@@ -54,12 +54,13 @@ def fsub_button(client, message):
         ])
 
     try:
-        buttons.append([
-            InlineKeyboardButton(
-                text="ᴄᴏʙᴀ ʟᴀɢɪ",
-                url=f"https://t.me/{client.username}?start={message.command[1]}",
-            )
-        ])
+        if message.command and len(message.command) > 1:
+            buttons.append([
+                InlineKeyboardButton(
+                    text="ᴄᴏʙᴀ ʟᴀɢɪ",
+                    url=f"https://t.me/{client.username}?start={message.command[1]}",
+                )
+            ])
     except IndexError:
         pass
 
