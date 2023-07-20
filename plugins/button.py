@@ -25,6 +25,10 @@ def start_button(client, is_fsub=False):
             InlineKeyboardButton(text="ɢʀᴏᴜᴘ", url=client.invitelink2),
         ])
 
+    # Rearrange buttons to be side by side (sejajar/berdampingan)
+    if len(buttons) >= 2:
+        buttons = [button_row[0] for button_row in buttons]
+
     buttons.extend([
         [
             InlineKeyboardButton(text="ʜᴇʟᴘ & ᴄᴏᴍᴍᴀɴᴅs", callback_data="help"),
@@ -52,6 +56,10 @@ def fsub_button(client, message):
         buttons.append([
             InlineKeyboardButton(text="ᴊᴏɪɴ ɢʀᴏᴜᴘ", url=client.invitelink2),
         ])
+
+    # Rearrange buttons to be side by side (sejajar/berdampingan)
+    if len(buttons) >= 2:
+        buttons = [button_row[0] for button_row in buttons]
 
     try:
         if message.command and len(message.command) > 1:
