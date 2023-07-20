@@ -11,11 +11,7 @@ def start_button(client, is_fsub=False):
         ])
 
     if FORCE_SUB_CHANNEL and not is_fsub:
-        if FORCE_SUB_CHANNEL2:
-            buttons[-1].append(
-                InlineKeyboardButton(text="ᴄʜᴀɴɴᴇʟ", url=client.invitelink)
-            )
-        else:
+        if not FORCE_SUB_CHANNEL2:
             buttons.append([
                 InlineKeyboardButton(text="ᴄʜᴀɴɴᴇʟ", url=client.invitelink),
             ])
@@ -55,7 +51,7 @@ def fsub_button(client, message):
                 InlineKeyboardButton(text="ᴊᴏɪɴ ɢʀᴏᴜᴘ", url=client.invitelink2),
             ])
 
-        if FORCE_SUB_CHANNEL:
+        if FORCE_SUB_CHANNEL and not FORCE_SUB_CHANNEL2:
             buttons.append([
                 InlineKeyboardButton(text="ᴊᴏɪɴ ᴄʜᴀɴɴᴇʟ", url=client.invitelink),
             ])
