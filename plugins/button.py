@@ -27,7 +27,7 @@ def start_button(client, is_fsub=False):
 
     # Rearrange buttons to be side by side (sejajar/berdampingan)
     if len(buttons) >= 2:
-        buttons = [button_row[0] for button_row in buttons]
+        buttons = [button_row for button_row in buttons]
 
     buttons.extend([
         [
@@ -59,7 +59,7 @@ def fsub_button(client, message):
 
     # Rearrange buttons to be side by side (sejajar/berdampingan)
     if len(buttons) >= 2:
-        buttons = [button_row[0] for button_row in buttons]
+        buttons = [button_row for button_row in buttons]
 
     try:
         if message.command and len(message.command) > 1:
