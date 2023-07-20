@@ -11,7 +11,11 @@ def start_button(client, is_fsub=False):
         ])
 
     if FORCE_SUB_CHANNEL and not is_fsub:
-        if not FORCE_SUB_CHANNEL2:
+        if FORCE_SUB_CHANNEL2:
+            buttons[-1].append(
+                InlineKeyboardButton(text="ᴄʜᴀɴɴᴇʟ", url=client.invitelink)
+            )
+        else:
             buttons.append([
                 InlineKeyboardButton(text="ᴄʜᴀɴɴᴇʟ", url=client.invitelink),
             ])
@@ -34,27 +38,20 @@ def start_button(client, is_fsub=False):
 def fsub_button(client, message):
     buttons = []
 
-    # Check if both FORCE_SUB_GROUP and FORCE_SUB_CHANNEL2 are True
-    if FORCE_SUB_GROUP and FORCE_SUB_CHANNEL2:
+    if FORCE_SUB_CHANNEL2:
+        buttons.append([
+            InlineKeyboardButton(text="ᴊᴏɪɴ ɢʀᴏᴜᴘ", url=client.invitelink3),
+        ])
+
+    if FORCE_SUB_CHANNEL:
+        buttons.append([
+            InlineKeyboardButton(text="ᴊᴏɪɴ ᴄʜᴀɴɴᴇʟ", url=client.invitelink),
+        ])
+
+    if FORCE_SUB_GROUP:
         buttons.append([
             InlineKeyboardButton(text="ᴊᴏɪɴ ɢʀᴏᴜᴘ", url=client.invitelink2),
-            InlineKeyboardButton(text="ᴊᴏɪɴ ᴄʜᴀɴɴᴇʟ", url=client.invitelink3),
         ])
-    else:
-        if FORCE_SUB_CHANNEL2:
-            buttons.append([
-                InlineKeyboardButton(text="ᴊᴏɪɴ ɢʀᴏᴜᴘ", url=client.invitelink3),
-            ])
-
-        if FORCE_SUB_GROUP:
-            buttons.append([
-                InlineKeyboardButton(text="ᴊᴏɪɴ ɢʀᴏᴜᴘ", url=client.invitelink2),
-            ])
-
-        if FORCE_SUB_CHANNEL and not FORCE_SUB_CHANNEL2:
-            buttons.append([
-                InlineKeyboardButton(text="ᴊᴏɪɴ ᴄʜᴀɴɴᴇʟ", url=client.invitelink),
-            ])
 
     try:
         if message.command and len(message.command) > 1:
