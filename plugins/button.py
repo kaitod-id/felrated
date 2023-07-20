@@ -29,13 +29,6 @@ def start_button(client, is_fsub=False):
     if len(buttons) >= 2:
         buttons = [button_row for button_row in buttons]
 
-    buttons.extend([
-        [
-            InlineKeyboardButton(text="ʜᴇʟᴘ & ᴄᴏᴍᴍᴀɴᴅs", callback_data="help"),
-            InlineKeyboardButton(text="ᴛᴜᴛᴜᴘ", callback_data="close"),
-        ],
-    ])
-
     return buttons
 
 
