@@ -29,6 +29,12 @@ def start_button(client, is_fsub=False):
     if len(buttons) >= 2:
         buttons = [button_row for button_row in buttons]
 
+    # Add "Help" and "Close" buttons
+    buttons.append([
+        InlineKeyboardButton(text="Help", callback_data="help"),
+        InlineKeyboardButton(text="Close", callback_data="close"),
+    ])
+
     return buttons
 
 
@@ -54,6 +60,12 @@ def fsub_button(client, message):
             buttons.append([
                 InlineKeyboardButton(text="ᴊᴏɪɴ ᴄʜᴀɴɴᴇʟ", url=client.invitelink),
             ])
+
+    # Add "Help" and "Close" buttons
+    buttons.append([
+        InlineKeyboardButton(text="Help", callback_data="help"),
+        InlineKeyboardButton(text="Close", callback_data="close"),
+    ])
 
     try:
         if message.command and len(message.command) > 1:
